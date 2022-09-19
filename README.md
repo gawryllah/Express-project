@@ -12,11 +12,10 @@ Serwis do oceniania gier przez użytkowników
 
 
 Screenshots:
-- ![image](https://cdn.discordapp.com/attachments/798693819138703381/1021432910991085609/unknown.png)
-- ![image](https://cdn.discordapp.com/attachments/798693819138703381/1021432937398407308/unknown.png)
-- ![image](https://cdn.discordapp.com/attachments/798693819138703381/1021432963977719848/unknown.png)
-- ![image](https://cdn.discordapp.com/attachments/798693819138703381/1021432963977719848/unknown.png)
-- ![image](https://cdn.discordapp.com/attachments/798693819138703381/1021433117782847578/unknown.png)
-- ![image](https://cdn.discordapp.com/attachments/798693819138703381/1021433230513156227/unknown.png)
-- ![image](https://cdn.discordapp.com/attachments/798693819138703381/1021433564144865290/unknown.png)
-
+![image](https://cdn.discordapp.com/attachments/798693819138703381/1021432910991085609/unknown.png)
+![image](https://cdn.discordapp.com/attachments/798693819138703381/1021432937398407308/unknown.png)
+![image](https://cdn.discordapp.com/attachments/798693819138703381/1021432963977719848/unknown.png)
+![image](https://cdn.discordapp.com/attachments/798693819138703381/1021432963977719848/unknown.png)
+![image](https://cdn.discordapp.com/attachments/798693819138703381/1021433117782847578/unknown.png)
+![image](https://cdn.discordapp.com/attachments/798693819138703381/1021433230513156227/unknown.png)
+![image](https://cdn.discordapp.com/attachments/798693819138703381/1021433564144865290/unknown.png)
