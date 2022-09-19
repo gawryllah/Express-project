@@ -1,0 +1,73 @@
+<%- include('../../fragments/header.ejs') %>
+
+   
+<main>
+    <% if (formMode == 'showDetails' || formMode == 'edit') { %> 
+    <h2>Szczegóły gry</h2>
+
+   <form class="form">
+        <label for="title">Title: <span class="symbol-required">*</span></label>
+        <input type="text" name="title" id="title" value ="<%= game.title %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %> />      
+        <span id="errorTitle"></span>
+
+        <label for="studio">Studio: <span class="symbol-required">*</span></label>
+        <input type="text" name="emastudioil" id="studio" value = "<%= game.studio %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %> />       
+        <span id="errorStudio"></span>
+        
+        <label for="publisher">Publisher: </span></label>
+        <input type="text" name="publisher" id="publisher" value="<%= game.publisher %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %> />        
+        <span id="errorPublisher"></span>
+
+        <label for="shortDescription">Short description: </span></label>
+        <input type="text" name="shortDescription" id="shortDescription" value="<%= game.shortDescription %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %> />        
+        <span id="errorShortDescription"></span>
+        
+        <div>
+            <p id="errorsSummary"></p>
+            <!--input type="submit" value="Dodaj" class="form-button-submit"/ -->
+            <!-- input type="reset" --> 
+            <a href="/games/edit/<%= game._id %>" class="form-button-edit">Edytuj</a>
+            <!--a href="user-list.html" class="form-button-cancel">Anuluj</a -->
+        </div>
+   </form>
+  
+   <br>
+   <h2>Grę lubią również:</h2>
+
+   <table class="table-list">
+    <tr>
+        <th>Username</th>
+        <th>PrivateProfile</th>
+        <th>Game score</th>
+        <th>Valuable User From</th>
+        <th>Description</th>
+    </tr>
+    <tbody>
+        <% for (let g of game.userProfiles) { %>
+        <tr>
+                <td><%= g.user.userName %></td>
+                <% if(g.isPrivate == true){ %>
+                    <td> <input type="checkbox" checked disabled ></td>
+                <% }else{ %>
+                    <td> <input type="checkbox"  disabled ></td>
+                    <% } %>
+                <td><%= g.gameScore %></td>
+                <% if(g.mvpDate == null){ %>
+                    <td>-</td>
+                <% }else{ %>
+                    <td><%= g.mvpDate.toISOString().split('T')[0] %></td>
+                <% } %>
+                <td><%= g.desc %></td> 
+       </tr>
+        <% } %>
+    </tbody>
+    
+</table>
+<% } %>
+<br>
+<a href="/games/" class="form-button-goback">Powrót</a>
+   
+</main>
+    <%- include('../../fragments/footer.ejs') %>
+
+</html>

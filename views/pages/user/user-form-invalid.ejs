@@ -1,0 +1,35 @@
+<%- include('../../fragments/header.ejs') %>
+   
+    <main>
+        
+        <h2>Nowy użytkownik</h2>
+
+       <form class="form input.error-input">
+            <label for="userName">Username: <span class="symbol-required">*</span></label>
+            <input type="text" name="userName" id="userName" class="error-input" required />      
+            <span id="errorUserName" class="errors-text">Pole jest wymagane!</span>
+
+            <label for="email">Email: <span class="symbol-required">*</span></label>
+            <input type="email" name="email" id="email" class="error-input" required />       
+            <span id="errorEmail" class="errors-text">Pole jest wymagane!</span>
+
+            <label for="country">Country: </span></label>
+            <input type="text" name="country" id="country"  />      
+            <span id="errorCountry" class="errors-text"></span>
+
+            <label for="lastLogged">LastLogged: </label>
+            <input type="datetime-local" name="lastLogged" id="lastLogged"  />       
+            <span id="errorLastLogged" class="errors-text"></span>
+
+            <div>
+                <p id="errorsSummary"><span class="errors-text">Formularz zawiera błędy!</span></p>
+                <input type="submit" value="Dodaj" class="form-button-submit"/>
+                <!--input type="reset"--> 
+                <a href="user-form.html" class="form-button-cancel">Anuluj</a>
+            </div>
+       </form>
+       
+    </main>
+    <%- include('../../fragments/footer.ejs') %>
+
+</html>

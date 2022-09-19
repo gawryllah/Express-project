@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <script type="application/javascript" src="/js/validationCommon.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    
+    <title>s21106 TIN_MP2</title>
+
+    <link rel="stylesheet" href="/styles/style.css" />
+
+    <% if(!loggedUser) { %>
+        <div id="login">
+            <h5>Logowanie</h5>
+            <form method="post" action="/login" novalidate>
+                <label for="loginEmail">Email:</label>
+                <input type="email" id="loginEmail" name="email">
+
+                <label for="loginPassword">Hasło:</label>
+                <input type="password" id="loginPassword" name="password">
+
+                <input type="submit" value="Zaloguj się">
+                <span id="loginErrors"><%= loginError ? loginError : ''%></span>
+            </form>
+        </div>
+    <%} else { %>
+        <div>
+            <span>Jesteś zalogowany jako: <%= loggedUser.userName %></span>
+            <a href="/logout">Wyloguj się</a>
+        </div>
+    <%} %>
+   
+</head>
+
+    
+<body>
+ 
+
+    
+    <header>
+        <h1>Banana Gaming</h1>
+        <img src="/images/gamepad.png" alt="gamepad"  width="100" height="100">
+    </header>
+
+    <nav>
+        <ul>
+            <% if(loggedUser) { %>
+            
+            <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>">Strona główna</a></li>
+            <li><a href="/users" class="<%= navLocation == 'usr' ? 'active' : ''%>">Użytkownicy</a></li>
+            <li><a href="/games" class="<%= navLocation == 'game' ? 'active' : ''%>">Gry</a></li>
+            <li><a href="/profiles" class="<%= navLocation == 'prof' ? 'active' : ''%>">Profile użytkowników</a></li>
+            <!-- <li><a href="/registerr" class="<%= navLocation == 'reg' ? 'active' : ''%>">Rejestracja</a></li> -->
+            <% } else { %>
+                <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>">Strona główna</a></li>
+            <%} %>
+         
+        </ul>
+
+
+    </nav>
+
