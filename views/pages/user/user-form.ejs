@@ -1,0 +1,43 @@
+<%- include('../../fragments/header.ejs') %>
+   
+    <main>
+        <script type="application/javascript" src="/js/validationUserForm.js"></script>
+        <h2><%= pageTitle %></h2>
+
+        <form class="form" method="post" action="<%= formAction %>" novalidate onsubmit="return validateForm();">
+            
+        
+            <input type="hidden" name="_id" value=""/>
+
+            <label for="userName">Username: <span class="symbol-required">*</span></label>
+            <input type="text" name="userName" id="userName" placeholder="Your nick" />        
+            <span id="errorUserName" class="errors-text"></span>
+
+            <label for="password">Password: <span class="symbol-required">*</span></label>
+            <input type="password" name="password" id="password" placeholder="Password" />        
+            <span id="errorPassword" class="errors-text"></span>
+
+            <label for="email">Email: <span class="symbol-required">*</span></label>
+            <input type="email" name="email" id="email" placeholder="Your email" required />       
+            <span id="errorEmail" class="errors-text"></span>
+
+            <label for="country">Country: </span></label>
+            <input type="text" name="country" id="country" placeholder="ex. Poland" />
+            <span id="errorCountry"></span>
+
+            <label for="lastLogged">Logging Time: </span></label>
+            <input type="datetime-local" name="lastLogged" id="lastLogged" />       
+            <span id="errorLastLogged"></span>
+
+
+            
+            <div>
+                <p id="errorsSummary" class="errors-text"></p>
+                <input type="submit" value="<%= btnLabel %>" class="form-button-submit"/>
+                <a href="/users/" class="form-button-cancel">Anuluj</a>
+            </div>
+       </form>
+       
+    </main>
+    <%- include('../../fragments/footer.ejs') %>
+</html>

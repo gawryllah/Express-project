@@ -1,0 +1,58 @@
+<%- include('../../fragments/header.ejs') %>
+
+   
+    <main>
+        
+        <script type="application/javascript" src="/js/validationProfileForm.js"></script>
+        <h2><%= pageTitle %></h2>
+        <form class="form" method="post" action="<%= formAction %>" novalidate onsubmit="return validateForm();">
+            
+            <label for="user_id">Użytkownik: <span class="symbol-required">*</span></label>
+            
+            <select id="user_id" name="user_id" required <%= (formMode == 'showDetails') ? 'disabled' : ''%>>
+                <option value="" selected>--- Wybierz użytkownika ---</option>
+                <% for (let i = 0; i < allUsers.length; i++) {let usr = allUsers[i]; %>
+                    <option value="<%=usr._id %>" label = "<%=usr.userName%>"
+                 <%= (profile._id && usr._id.toString() == profile.user._id.toString()) ? 'selected' : ''%>></option>
+                 <% } %>
+            </select>
+            <span id="errorUserName" class="errors-text"></span>
+
+            <label for="favGame_id">FavouriteGame: <span class="symbol-required">*</span></label>
+            <select id="favGame_id" name="favGame_id" required <%= (formMode == 'showDetails') ? 'disabled' : ''%>>
+                <option value="" selected>--- Wybierz gre ---</option>
+                <% for (let i = 0; i < allGames.length; i++) {let gm = allGames[i]; %>
+                    <option value="<%=gm._id %>" label = "<%=gm.title%>"
+                 <%= (profile._id && gm._id.toString() == profile.gm._id.toString()) ? 'selected' : ''%>></option>
+                 <% } %>
+            </select>
+            
+            <span id="errorFavouriteGame" class="errors-text"></span>
+
+            <label for="gameScore">GameScore: </label>
+            <input type="number" name="gameScore" id="gameScore"  />        
+            <span id="errorGameScore" class="errors-text"></span>
+
+            <label for="mvpDate">Valuable User From: </label>
+            <input type="date" name="mvpDate" id="mvpDate"  />        
+            <span id="errorMvpDate" class="errors-text"></span>
+
+            <label for="isPrivate">PrivateProfile?: <span class="symbol-required">*</span></label>
+            <input type="number" name="isPrivate" id="isPrivate" placeholder="1 - prywatny, 0 - nie" />      
+            <span id="errorPrivateProfile" class="errors-text"></span>
+
+            <label for="desc">Description: </label>
+            <input type="text" name="desc" id="desc"  />        
+            <span id="errorDescription"></span>
+
+            <div>
+                <p id="errorsSummary" class="errors-text"></p>
+                <input type="submit" value="<%= btnLabel %>"" class="form-button-submit"/>
+                <!-- input type="reset" -->
+                <a href="/profiles/" class="form-button-cancel">Anuluj</a>
+            </div>
+       </form>
+       
+    </main>
+    <%- include('../../fragments/footer.ejs') %>
+</html>
